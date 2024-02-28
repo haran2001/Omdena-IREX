@@ -1,14 +1,19 @@
 import streamlit as st
 
+
 def main():
     st.image("omdena_logo.png", width=300, use_column_width=True)
     st.title(" :blue[Fake News Detection Portal]")
     
     with st.container(border=True):
-        st.selectbox("Select News Source:", ["www.elsalvador.com", "www.elmundo"])
-        st.write('Enter the URL of the news article or paste text from the news article below...')
-        url = st.text_input('URL of the article:')
-        article = st.text_area('Text from the article:')
+        st.selectbox("Select News Source:", ["Diario Contra Punto", "Diario El Salvador","Diario La Huella","El Salvador","Focos TV","La Prensa Gráfica","Mala Yerba","Revista Factum","Revista Gato Encerrado","Sivar News","Última Hora SV"])
+        choice = st.radio('Select an option:', ['I have the URL of the news article', 'I will paste text from the article'], index=0,key='choice')
+        
+        if choice == 'I have the URL of the news article':
+            url = st.text_input('Enter the URL of the news article:')
+        else:
+            text = st.text_area('Paste text from the news article:')
+            
         summary = 'This is the summary'
         if st.button('Get Summary & Insights',type='primary'):
             st.text_area('Summary:', summary)
