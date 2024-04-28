@@ -91,3 +91,5 @@ validators==0.22.0
 webdriver-manager==4.0.1
 wsproto==1.2.0
 zipp==3.17.0
+
+google-chrome
