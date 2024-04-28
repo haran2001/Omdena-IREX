@@ -63,7 +63,7 @@ def main():
     with st.sidebar:
         "# Falsa o Real?"
         "Detecta noticias falsas con ayuda de nuestra herramienta de IA"
-        st.image("Fake_or_Real2.png")
+        st.image("Fake_or_Real3.png")
 
 
 if __name__=='__main__':

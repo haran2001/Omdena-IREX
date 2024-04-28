@@ -26,7 +26,7 @@ def generate_news_content_html(news):
 
 def load_settings():
     try:
-        path = os.path.abspath('config/settings.json')
+        path = os.path.realpath('config/settings.json')
         with open(path, "r") as file:
             return json.load(file)
     except FileNotFoundError:
@@ -125,8 +125,8 @@ def create_report(headline,news,date_time,category,confidence,reasoning,context,
 def generate_pdf(report_path,headline,news,date_time,category,confidence,reasoning,context,times):
     try:
         create_report(headline,news,date_time,category,confidence,reasoning,context,times)
-        source_path = os.path.abspath('report/report.html')
-        dest_path = os.path.abspath(report_path)
+        source_path = os.path.realpath('report/report.html')
+        dest_path = os.path.realpath(report_path)
         if os.path.exists(dest_path):
             converter.convert(f'file:///{source_path}', dest_path + '/report.pdf')
         else:
