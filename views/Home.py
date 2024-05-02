@@ -217,10 +217,12 @@ def main():
                                 
                                 if  st.session_state['category'] == 'Fake':
                                     flag = False
-                                    prob_msg = 'Falso'
+                                    prob_msg = 'Poco Confiable'
+                                    st.session_state['category'] = 'Poco Confiable'
                                 else:
                                     flag = True
-                                    prob_msg = 'Real'
+                                    prob_msg = 'Confiable'
+                                    st.session_state['category'] = 'Confiable'
                                     
                                 st.session_state['rep_date_time'] =  datetime.now().strftime("%B %d %Y %H:%M:%S")
                                 st.session_state['probability'] = "{:2.0f}".format(round(st.session_state['probability'] * 100,2)) + '%'
@@ -246,9 +248,9 @@ def main():
                                         if flag == '':
                                             st.write('')
                                         elif flag == False:
-                                            st.warning('Falso',icon='❌')
+                                            st.warning('Poco Confiable',icon='❌')
                                         else:
-                                            st.warning('Real',icon='✅')
+                                            st.warning('Confiable',icon='✅')
                                         
                                     with row2[0]:
                                         st.write('##### Probabilidad predicha basada únicamente en el texto:')
